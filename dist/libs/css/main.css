@@ -1,0 +1,26 @@
+/*
+  Estilo para os Card das Casas
+*/
+.house-box {
+  border: 2px solid #424242;
+  text-align: center;
+  color: red;
+  width: 300px;
+  position: relative;
+  height: 190px; }
+  .house-box img {
+    max-width: 296px; }
+  .house-box p {
+    width: 100%;
+    top: 159px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border-top: 2px solid #424242; }
+  .house-box .legenda {
+    background-color: #9d9d9d;
+    color: #ffffff;
+    margin-top: -15px;
+    position: absolute; }
+  .house-box .nextphoto {
+    top: 50%;
+    position: absolute; }
