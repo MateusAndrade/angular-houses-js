@@ -2,35 +2,45 @@
   Estilo para os Card das Casas
 */
 .house-box{
-  border: 2px solid #424242;
+
+  $corBordas: #000;
+
+  border: 2px solid $corBordas;
   text-align: center;
   color: red;
-  width: 300px;
+  width: 350px;
   position: relative;
-  height: 190px;
+  height: 230px;
 
   img{
-    max-width: 296px;
-  }
-
-  p{
-    width: 100%;
-    top: 159px;
-    padding-top: 8px;
-    padding-bottom: 8px;
-    border-top: 2px solid #424242;
+    max-width: 346px;
   }
 
   .legenda{
-    background-color: #9d9d9d;
-    color: #ffffff;
+    width: 100%;
+    top: 170px;
+    padding-top: 3px;
+    padding-bottom: 3px;
     margin-top: -15px;
+    border-top: 2px solid $corBordas;
+    border-bottom: 2px solid $corBordas;
     position: absolute;
+    background-color: #445aed;
+    color: #ffffff;
   }
 
-  .nextphoto{
-    top: 50%;
-    position: absolute;
-  }
+}
 
+.house-box:hover{
+  box-shadow: 2px 2px 8px 2px #888888;
+  width: 355px;
+  height: 235px;
+}
+
+.container{
+  margin-top: 10px;
+}
+
+.label-form-search{
+  margin-top: 5px;
 }

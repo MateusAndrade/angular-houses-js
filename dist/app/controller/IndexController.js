@@ -1,5 +1,11 @@
-app.controller("IndexController", function($scope){
+app.controller("IndexController", function($scope, HouseFactory){
 
-  $scope.msg = "Olar";
-
+  HouseFactory.consultarCasas()
+      .then(function(res){
+          $scope.houses = res.data;
+      })
+      .catch(function(res){
+          $scope.msg = "Não foi possível consultar os Imóveis";
+      })
+      
 });

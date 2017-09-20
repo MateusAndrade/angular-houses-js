@@ -41,11 +41,59 @@
 
   <div class="container">
     <div class="row">
-      <div class="col-md-8">
-        <house></house>
+      <div class="col-md-12">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item active">Home</li>
+        </ol>
       </div>
     </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="breadcrumb">
+          <div class="container">
+            <div class="row">
+              <p class="label-form-search">Filtrar Pesquisa:</p>
+              <div class="col-md-3">
+                <div class="btn-group" role="group" aria-label="Basic example">
+                  <button type="button" class="btn btn-primary">Comprar</button>
+                  <button type="button" class="btn btn-primary">Alugar</button>
+                </div>
+              </div>
+
+              <p class="label-form-search">N. Dormitórios:</p>
+              <div class="col-md-2">
+                  <select class="form-control" id="dormitorios">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+              </div>
+
+              <p class="label-form-search">N. Vagas:</p>
+              <div class="col-md-2">
+                  <select class="form-control" id="dormitorios">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <house></house>
+
+
   </div>
+
 
   <!-- Scripts para uso na aplicação -->
   <script src="app.js"></script>
@@ -53,6 +101,8 @@
   <script src="app/controller/IndexController.js"></script>
   <!-- Components -->
   <script src="app/components/house-card/house.js"></script>
+  <!-- Factory -->
+  <script src="app/factory/HouseFactory.js"></script>
   <!-- Scripts usados pelo Jquery -->
   <script src="libs/js/jquery.min.js"></script>
   <!-- Scripts usados pelo PopperJS -->

@@ -17,6 +17,7 @@
   "dependencies": {
     "bootstrap": "bootstrap4#^4.0.0",
     "angular": "angularjs#^1.6.6",
-    "popper.js": "^1.12.5"
+    "popper.js": "^1.12.5",
+    "angular-route": "^1.6.4"
   }
 }
