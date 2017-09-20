@@ -1,0 +1,20 @@
+{
+  "name": "angular-houses-js",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "MateusAndrade <mateus.andrade47@outlook.com>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "bootstrap4#^3.3.7"
+  }
+}
