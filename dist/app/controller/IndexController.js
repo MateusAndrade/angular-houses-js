@@ -2,6 +2,7 @@ app.controller("IndexController", function($scope, HouseFactory){
 
   $scope.casasIniciais = [];
   $scope.casas = [];
+  var casasTemporarias = [];
 
   (function inicializaTela(){
     //carrego os dados vindos do arquivo houses.json usando a minha factory
@@ -18,8 +19,6 @@ app.controller("IndexController", function($scope, HouseFactory){
   })();
 
   $scope.tipoAquisicao = function(){
-      var casasTemporarias = [];
-
       // filtro as pesquisas realizadas por compra
       if($scope.pesquisa.compra){
         // filtro os imoveis que estao setadas como disponiveis para compra
@@ -35,7 +34,6 @@ app.controller("IndexController", function($scope, HouseFactory){
 
       // filtro as pesquisadas realizadas por aluguel
       if($scope.pesquisa.aluguel){
-        console.log("aqui");
         // filtro os imoveis que estao setadas como disponiveis para compra
         // usando o filter para retornar um array
         casasTemporarias = $scope.casas.filter(function(elem, index, array){
@@ -46,6 +44,18 @@ app.controller("IndexController", function($scope, HouseFactory){
       } else if(!$scope.pesquisa.compra && !$scope.pesquisa.aluguel) {
         $scope.casas = $scope.casasIniciais;
       }
+  }
+
+  $scope.filtrarDormitoriosVagas = function(ele){
+    casasTemporarias = $scope.casas.filter(function(elem, index, array){
+      if(elem.vagas == ele || elem.dormitorios == ele)
+        return array.indexOf( elem ) === index;
+    });
+    $scope.casas = casasTemporarias
+  }
+
+  $scope.limparFiltro = function(){
+    delete $scope.pesquisa;
   }
 
 });
