@@ -6,9 +6,72 @@
       "numero": 35,
       "telefone": "(11) 1515-1515",
       "email": "email@email.com",
+      "descricao": "Excelente imóvel localizado próximo ao Shopping.",
+      "dormitorios": 1,
+      "vagas": 1,
       "tipo": {
          "venda": {
             "disponibilidade": true,
+            "preco": 100000
+         },
+         "locacao": {
+            "disponibilidade": false,
+            "preco": 1000
+         }
+      },
+      "fotos": [
+         [
+            "www.url.com"
+         ],
+         [
+            "www.url.com"
+         ]
+      ]
+   }
+   ,
+   {
+      "endereco": "Rua X",
+      "cidade": "São Paulo",
+      "uf": "SP",
+      "numero": 35,
+      "telefone": "(11) 1515-1515",
+      "email": "email@email.com",
+      "descricao": "Excelente imóvel localizado próximo ao Shopping.",
+      "dormitorios": 5,
+      "vagas": 0,
+      "tipo": {
+         "venda": {
+            "disponibilidade": true,
+            "preco": 100000
+         },
+         "locacao": {
+            "disponibilidade": true,
+            "preco": 1000
+         }
+      },
+      "fotos": [
+         [
+            "www.url.com"
+         ],
+         [
+            "www.url.com"
+         ]
+      ]
+   }
+   ,
+   {
+      "endereco": "Rua X",
+      "cidade": "São Paulo",
+      "uf": "SP",
+      "numero": 35,
+      "telefone": "(11) 1515-1515",
+      "email": "email@email.com",
+      "descricao": "Excelente imóvel localizado próximo ao Shopping.",
+      "dormitorios": 3,
+      "vagas": 2,
+      "tipo": {
+         "venda": {
+            "disponibilidade": false,
             "preco": 100000
          },
          "locacao": {

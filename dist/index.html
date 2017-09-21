@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="pt-BR" ng-app="houses" ng-controller="IndexController">
+<html lang="pt-BR" ng-app="houses" ng-controller="IndexController as ctrl">
 <head>
   <!-- Passa a raiz do projeto pro navegador -->
   <base href="/">
@@ -29,12 +29,6 @@
         <li class="nav-item active">
           <a class="nav-link" href="#">Home</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/alugar">Alugar</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/comprar">Comprar</a>
-        </li>
       </ul>
     </div>
   </nav>
@@ -51,35 +45,38 @@
     <div class="row">
       <div class="col-md-12">
         <div class="breadcrumb">
+
           <div class="container">
+
             <div class="row">
               <p class="label-form-search">Filtrar Pesquisa:</p>
               <div class="col-md-3">
-                <div class="btn-group" role="group" aria-label="Basic example">
-                  <button type="button" class="btn btn-primary">Comprar</button>
-                  <button type="button" class="btn btn-primary">Alugar</button>
+                <div class="form-check">
+                  <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox"
+                      ng-model='pesquisa.compra' ng-change="tipoAquisicao()">
+                    Comprar
+                  </label>
+                </div>
+                <div class="form-check">
+                  <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox"
+                      ng-model='pesquisa.aluguel' ng-change="tipoAquisicao()">
+                    Alugar
+                  </label>
                 </div>
               </div>
 
               <p class="label-form-search">N. Dormitórios:</p>
               <div class="col-md-2">
-                  <select class="form-control" id="dormitorios">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
+                  <select class="form-control" ng-model="pesquisa.dormitorios">
                   </select>
               </div>
 
               <p class="label-form-search">N. Vagas:</p>
               <div class="col-md-2">
-                  <select class="form-control" id="dormitorios">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
+                  <select class="form-control" ng-model="pesquisa.vagas">
+
                   </select>
               </div>
 
@@ -89,11 +86,38 @@
       </div>
     </div>
 
-    <house></house>
+    <div class="row justify-content-md-center">
 
+      <!-- Exibo os imoveis carregados em um primeiro momento vindo do arquivo houses.json -->
+      <div ng-if="casas.length > 0" class="col-md-12">
+        <section class="imoveis">
+          <p class="lead">
+            Foram encontrados os seguintes imóveis:
+          </p>
+          <house-component data="casa" ng-repeat="casa in casas"></house-component>
+        </section>
+      </div>
 
+      <!-- Caso nçao sejam encontrados imoveis no mesmo exibo uma mensagem notificando o usuario -->
+      <div ng-if="casas.length == 0" class="col-md-12">
+        <section class="imoveis">
+          <p class="lead">
+            Não foram encontrados imóveis com o filtro solicitado.
+          </p>
+      </div>
+
+      <!-- Caso ocorra algum erro ao carregar os dados vindos do JSON exibo uma mensagem vinda do Controller -->
+      <div ng-if="casas == undefined" class="col-md-12">
+        <section class="imoveis">
+          <p class="lead">
+            {{ msg }}
+          </p>
+      </div>
+      <!-- Este trecho ficaria melhor usando components para realizar o tratamento das mensagens, porém para agilizar
+           preferi manter o mesmo dessa maneira
+      -->
+    </div>
   </div>
-
 
   <!-- Scripts para uso na aplicação -->
   <script src="app.js"></script>

@@ -1,9 +1,22 @@
-<div class="house-box">
-  <img src="http://clv.h-cdn.co/assets/16/32/640x320/landscape-1470768620-perfect-fit-house-0916.jpg">
-  <p class="legenda">R$ 5000,00</p>
-  <ul>
-    <li></li>
-    <li></li>
-    <li></li>
+<div class="card">
+  <img class="card-img-top" src="http://clv.h-cdn.co/assets/16/32/640x320/landscape-1470768620-perfect-fit-house-0916.jpg" alt="Imagem Cada">
+  <div class="card-body">
+    <h4 class="card-title text-center">
+      <!-- Verifico a disponibilidade da Locacao para Exibir a Label de Titutle de Acordo -->
+      <!-- Caso o imovel esteja disponivel apenas para venda -->
+      <span ng-if="$ctrl.data.tipo.venda.disponibilidade && !$ctrl.data.tipo.locacao.disponibilidade">Venda</span>
+      <!-- Caso o imovel esteja disponivel apenas para Locacao -->
+      <span ng-if="!$ctrl.data.tipo.venda.disponibilidade && $ctrl.data.tipo.locacao.disponibilidade">Locação</span>
+      <!-- Caso o imovel esteja disponivel apenas para venda/locacao -->
+      <span ng-if="$ctrl.data.tipo.venda.disponibilidade && $ctrl.data.tipo.locacao.disponibilidade">Locação/Venda</span>
+    </h4>
+    <p class="card-text">{{$ctrl.data.descricao}}</p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"><span class="titulo-lista-casa">N.Dormitórios:</span> {{$ctrl.data.dormitorios}}</li>
+    <li class="list-group-item"><span class="titulo-lista-casa">N.Vagas:</span> {{$ctrl.data.vagas}}</li>
   </ul>
+  <div class="card-body">
+    <p class="reseta-p text-center"><button ng-click="$ctrl.detalhes();" class="btn btn-link card-link">Consultar Detalhes</button></p>
+  </div>
 </div>

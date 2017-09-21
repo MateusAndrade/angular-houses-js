@@ -22,6 +22,9 @@ gulp.task("default", function(){
     gulp.src('sass/**/*.scss')
           .pipe(sass().on('error', sass.logError))
           .pipe(gulp.dest('dist/libs/css/'));
+    // Copia os arquivos do backbone
+    gulp.src('node_modules/backbone/*.min.js')
+          .pipe(gulp.dest('dist/libs/js/'));
 });
 
 gulp.task('sass', function () {
