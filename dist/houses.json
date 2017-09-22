@@ -39,7 +39,7 @@
       "tipo": {
          "venda": {
             "disponibilidade": true,
-            "preco": 1.000.000.00
+            "preco": 1000000.00
          },
          "locacao": {
             "disponibilidade": true,
@@ -66,7 +66,7 @@
       "tipo": {
          "venda": {
             "disponibilidade": false,
-            "preco": 200.0000
+            "preco": 20000.00
          },
          "locacao": {
             "disponibilidade": true,
