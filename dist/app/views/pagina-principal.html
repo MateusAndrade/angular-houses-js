@@ -1,0 +1,90 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="breadcrumb">
+
+      <div class="container">
+        <!-- Formulário para pesquisa na lista de casas, optei por usar o Marlborough_House_Rotating_Summer_House
+          chumbado diretamente na view sem componentes por estar tendo um pouco de dificuldades para manipular o scope
+        -->
+        <div class="row">
+          <p class="label-form-search">Filtrar Pesquisa:</p>
+          <div class="col-md-3">
+            <!-- Filtro as Locacoes disponiveis para compra -->
+            <div class="form-check">
+              <label class="form-check-label">
+                <input class="form-check-input" type="checkbox"
+                  ng-model='pesquisa.compra' ng-change="tipoAquisicao()">
+                Comprar
+              </label>
+            </div>
+            <!-- Filtro as Locacoes disponiveis para Alugar -->
+            <div class="form-check">
+              <label class="form-check-label">
+                <input class="form-check-input" type="checkbox"
+                  ng-model='pesquisa.aluguel' ng-change="tipoAquisicao()">
+                Alugar
+              </label>
+            </div>
+          </div>
+
+          <!-- Filtros as locações de acordo com o número de dormitorios -->
+          <p class="label-form-search">N. Dormitórios:</p>
+          <div class="col-md-2">
+              <select class="form-control" ng-model="pesquisa.dormitorios" ng-change="filtrarDormitoriosVagas(pesquisa.dormitorios)">
+                <option disabled value="">Selecione uma Quantidade:</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </select>
+          </div>
+          <!-- Filtro as Locacoes de acordo com o numero de vagas -->
+          <p class="label-form-search">N. Vagas:</p>
+          <div class="col-md-2">
+              <select class="form-control" ng-model="pesquisa.vagas" ng-change="filtrarDormitoriosVagas(pesquisa.vagas)">
+                <option disabled value="">Selecione uma Quantidade:</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </select>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+
+  <!-- Exibo os imoveis carregados em um primeiro momento vindo do arquivo houses.json -->
+  <div ng-if="casas.length > 0" class="col-md-12">
+    <section class="imoveis">
+      <p class="lead">
+        Foram encontrados os seguintes imóveis:
+      </p>
+      <house-component data="casa" ng-repeat="casa in casas"></house-component>
+    </section>
+  </div>
+
+  <!-- Caso nçao sejam encontrados imoveis no mesmo exibo uma mensagem notificando o usuario -->
+  <div ng-if="casas.length == 0" class="col-md-12">
+    <section class="imoveis">
+      <p class="lead">
+        Não foram encontrados imóveis com o filtro solicitado.
+      </p>
+  </div>
+
+  <!-- Caso ocorra algum erro ao carregar os dados vindos do JSON exibo uma mensagem vinda do Controller -->
+  <div ng-if="casas == undefined" class="col-md-12">
+    <section class="imoveis">
+      <p class="lead">
+        {{ msg }}
+      </p>
+  </div>
+  <!-- Este trecho ficaria melhor usando components para realizar o tratamento das mensagens, porém para agilizar
+       preferi manter o mesmo dessa maneira
+  -->
+</div>

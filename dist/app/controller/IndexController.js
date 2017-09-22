@@ -1,9 +1,13 @@
 app.controller("IndexController", function($scope, HouseFactory){
 
+  var casasTemporarias = [];
+  //inicializo as variaveis que irei usar no scope,caso ocorra algum erro
+  //e a nao seja possivel carregar os dados vindo do factory, sera possivel
+  //tratar os mesmos na view com uma mensagem
   $scope.casasIniciais = [];
   $scope.casas = [];
-  var casasTemporarias = [];
 
+  //inicializo o objetos casas com os arquivos vindos do json
   (function inicializaTela(){
     //carrego os dados vindos do arquivo houses.json usando a minha factory
     HouseFactory.consultarCasas()
@@ -48,15 +52,13 @@ app.controller("IndexController", function($scope, HouseFactory){
   }
 
   $scope.filtrarDormitoriosVagas = function(ele){
+    // filtros as locacoes de acordo com a quantidade de vagas ou dormitorios
+    // o mesmo retorna um novo array que é em seguida enviado para a view
     casasTemporarias = $scope.casas.filter(function(elem, index, array){
       if(elem.vagas == ele || elem.dormitorios == ele)
         return array.indexOf( elem ) === index;
     });
     $scope.casas = casasTemporarias
-  }
-
-  $scope.limparFiltro = function(){
-    $scope.casas = angular.copy(casasTemporarias);
   }
 
 });

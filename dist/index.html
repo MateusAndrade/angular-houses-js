@@ -13,6 +13,8 @@
   <link rel="stylesheet" href="libs/css/main.css">
   <!-- Script para "bootar a aplicação" -->
   <script src="libs/js/angular.min.js"></script>
+  <!-- AnguarlJS Routes -->
+  <script src="libs/js/angular-route.min.js"></script>
 </head>
 <body>
 
@@ -27,7 +29,7 @@
     <div class="collapse navbar-collapse" id="navBarPrincipal">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="#">Home</a>
+          <a class="nav-link" href="#!/">Home</a>
         </li>
       </ul>
     </div>
@@ -42,100 +44,16 @@
       </div>
     </div>
 
-    <div class="row">
-      <div class="col-md-12">
-        <div class="breadcrumb">
+    <div ng-view></div>
 
-          <div class="container">
-
-            <div class="row">
-              <p class="label-form-search">Filtrar Pesquisa:</p>
-              <div class="col-md-3">
-                <div class="form-check">
-                  <label class="form-check-label">
-                    <input class="form-check-input" type="checkbox"
-                      ng-model='pesquisa.compra' ng-change="tipoAquisicao()">
-                    Comprar
-                  </label>
-                </div>
-                <div class="form-check">
-                  <label class="form-check-label">
-                    <input class="form-check-input" type="checkbox"
-                      ng-model='pesquisa.aluguel' ng-change="tipoAquisicao()">
-                    Alugar
-                  </label>
-                </div>
-              </div>
-
-              <p class="label-form-search">N. Dormitórios:</p>
-              <div class="col-md-2">
-                  <select class="form-control" ng-model="pesquisa.dormitorios" ng-change="filtrarDormitoriosVagas(pesquisa.dormitorios)">
-                    <option disabled value="">Selecione uma Quantidade:</option>
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                  </select>
-              </div>
-
-              <p class="label-form-search">N. Vagas:</p>
-              <div class="col-md-2">
-                  <select class="form-control" ng-model="pesquisa.vagas" ng-change="filtrarDormitoriosVagas(pesquisa.vagas)">
-                    <option disabled value="">Selecione uma Quantidade:</option>
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                  </select>
-              </div>
-
-              <button class="btn btn-primary" ng-click="limparFiltro()">Limpar Filtro</button>
-
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="row">
-
-      <!-- Exibo os imoveis carregados em um primeiro momento vindo do arquivo houses.json -->
-      <div ng-if="casas.length > 0" class="col-md-12">
-        <section class="imoveis">
-          <p class="lead">
-            Foram encontrados os seguintes imóveis:
-          </p>
-          <house-component data="casa" ng-repeat="casa in casas"></house-component>
-        </section>
-      </div>
-
-      <!-- Caso nçao sejam encontrados imoveis no mesmo exibo uma mensagem notificando o usuario -->
-      <div ng-if="casas.length == 0" class="col-md-12">
-        <section class="imoveis">
-          <p class="lead">
-            Não foram encontrados imóveis com o filtro solicitado.
-          </p>
-      </div>
-
-      <!-- Caso ocorra algum erro ao carregar os dados vindos do JSON exibo uma mensagem vinda do Controller -->
-      <div ng-if="casas == undefined" class="col-md-12">
-        <section class="imoveis">
-          <p class="lead">
-            {{ msg }}
-          </p>
-      </div>
-      <!-- Este trecho ficaria melhor usando components para realizar o tratamento das mensagens, porém para agilizar
-           preferi manter o mesmo dessa maneira
-      -->
-    </div>
   </div>
 
   <!-- Scripts para uso na aplicação -->
   <script src="app.js"></script>
+  <script src="app/config/config.js"></script>
   <!-- Controllers -->
   <script src="app/controller/IndexController.js"></script>
+  <script src="app/controller/DetalhesController.js"></script>
   <!-- Components -->
   <script src="app/components/house-card/house.js"></script>
   <!-- Factory -->

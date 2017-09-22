@@ -4,8 +4,11 @@ app.component("houseComponent",{
     data: '='
   },
   controller: function(){
+    //consulto os detalhes da casa selecionada
     this.detalhes = function(){
       console.log(this.data);
+      sessionStorage.setItem("detalhesCasa",angular.toJson(this.data));
+      location.assign("#!detalhes");
     };
   }
 });

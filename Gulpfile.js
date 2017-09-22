@@ -15,6 +15,8 @@ gulp.task("default", function(){
     // Copia os arquivos do AngularJS
     gulp.src('bower_components/angular/*.min.js')
           .pipe(gulp.dest('dist/libs/js/'));
+    gulp.src('bower_components/angular-route/*.min.js')
+          .pipe(gulp.dest('dist/libs/js/'));
     // Copia os arquivos do PopperJS
     gulp.src('bower_components/popper.js/dist/*.min.js')
           .pipe(gulp.dest('dist/libs/js/'));
