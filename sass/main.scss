@@ -52,6 +52,11 @@
     width: 300px;
     float: left;
     margin-right: 15px;
+
+    img{
+      height: 230px;
+    }
+
   }
 
   .card:hover{
@@ -73,4 +78,8 @@
 
 .titulo-lista-casa{
   font-weight: bold;
+}
+
+.box-pesquisa{
+  padding: 10px;
 }

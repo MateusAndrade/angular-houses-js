@@ -9,6 +9,7 @@ app.controller("IndexController", function($scope, HouseFactory){
     HouseFactory.consultarCasas()
     .then(function(res){
       $scope.casas = res.data;
+      console.log($scope.casas);
       $scope.casasIniciais = angular.copy($scope.casas);
     })
     .catch(function(res){
@@ -55,7 +56,7 @@ app.controller("IndexController", function($scope, HouseFactory){
   }
 
   $scope.limparFiltro = function(){
-    delete $scope.pesquisa;
+    $scope.casas = angular.copy(casasTemporarias);
   }
 
 });
