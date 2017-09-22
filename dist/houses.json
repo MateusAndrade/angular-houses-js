@@ -1,36 +1,33 @@
 [
    {
-      "endereco": "Rua X",
+      "endereco": "Rua A",
       "cidade": "São Paulo",
       "uf": "SP",
       "numero": 35,
       "telefone": "(11) 1515-1515",
       "email": "email@email.com",
-      "descricao": "Excelente imóvel localizado próximo ao Shopping.",
+      "descricao": "Excelente imóvel localizado próximo ao Shopping X.",
       "dormitorios": 1,
       "vagas": 1,
       "tipo": {
          "venda": {
             "disponibilidade": true,
-            "preco": 100000
+            "preco": 150.0000
          },
          "locacao": {
             "disponibilidade": false,
-            "preco": 1000
+            "preco": 1.500
          }
       },
       "fotos": [
          [
-            "www.url.com"
-         ],
-         [
-            "www.url.com"
+            "https://upload.wikimedia.org/wikipedia/en/9/93/Marlborough_House_Rotating_Summer_House.jpg"
          ]
       ]
    }
    ,
    {
-      "endereco": "Rua X",
+      "endereco": "Rua B",
       "cidade": "São Paulo",
       "uf": "SP",
       "numero": 35,
@@ -38,53 +35,47 @@
       "email": "email@email.com",
       "descricao": "Excelente imóvel localizado próximo ao Shopping.",
       "dormitorios": 5,
-      "vagas": 0,
+      "vagas": 3,
       "tipo": {
          "venda": {
             "disponibilidade": true,
-            "preco": 100000
+            "preco": 1.000.000.00
          },
          "locacao": {
             "disponibilidade": true,
-            "preco": 1000
+            "preco": 10.000
          }
       },
       "fotos": [
          [
-            "www.url.com"
+            "https://upload.wikimedia.org/wikipedia/commons/d/d5/North_Fa%C3%A7ade_White_House.JPG"
          ],
-         [
-            "www.url.com"
-         ]
       ]
    }
    ,
    {
-      "endereco": "Rua X",
+      "endereco": "Rua C",
       "cidade": "São Paulo",
       "uf": "SP",
       "numero": 35,
       "telefone": "(11) 1515-1515",
       "email": "email@email.com",
-      "descricao": "Excelente imóvel localizado próximo ao Shopping.",
+      "descricao": "Excelente imóvel localizado próximo ao Shopping C.",
       "dormitorios": 3,
       "vagas": 2,
       "tipo": {
          "venda": {
             "disponibilidade": false,
-            "preco": 100000
+            "preco": 200.0000
          },
          "locacao": {
             "disponibilidade": true,
-            "preco": 1000
+            "preco": 3.000
          }
       },
       "fotos": [
          [
-            "www.url.com"
-         ],
-         [
-            "www.url.com"
+            "https://upload.wikimedia.org/wikipedia/commons/b/b6/Urrbrae_House.JPG"
          ]
       ]
    }
