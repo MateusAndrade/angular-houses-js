@@ -3,7 +3,5 @@ app.component("houseDetails",{
   bindings: {
     data: '='
   },
-  controller: function(){
-
-  }
+  controller: function(){}
 });

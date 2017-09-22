@@ -56,3 +56,11 @@
 
 .box-pesquisa {
   padding: 10px; }
+
+.lista-detalhe-casa {
+  text-align: left; }
+  .lista-detalhe-casa li span {
+    font-weight: bold; }
+
+#img-casa {
+  margin-bottom: 10px; }

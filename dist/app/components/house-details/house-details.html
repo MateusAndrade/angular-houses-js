@@ -1,1 +1,57 @@
-{{ casa }}
+<div class="row">
+  <div class="col-md-12">
+    <img src="{{ casa.foto }}" class="rounded float-left" id="img-casa">
+  </div>
+  <div class="col-md-12">
+    <div class="card text-center">
+      <div class="card-header">
+        Detalhes do Imóvel
+      </div>
+      <div class="card-body">
+        <p class="card-text">{{ casa.descricao }}</p>
+      </div>
+      <ul class="list-group list-group-flush lista-detalhe-casa">
+        <li class="list-group-item"><span>Endereço:</span> {{ casa.endereco }}</li>
+        <li class="list-group-item"><span>Número:</span> {{ casa.numero}}</li>
+        <li class="list-group-item"><span>Dormitórios:</span> {{ casa.dormitorios }}</li>
+        <li class="list-group-item"><span>Vagas:</span> {{ casa.vagas }}</li>
+        <li class="list-group-item"><span>Dormitórios:</span> {{ casa.dormitorios }}</li>
+        <li class="list-group-item"><span>Email:</span> {{ casa.email }}</li>
+        <li class="list-group-item"><span>Telefone:</span> {{ casa.telefone }}</li>
+        <!-- De acordo com a disponibilidade de locacao ou venda do imovel sera exibido de moz-box-shadow
+        diferente a lista com os detalhes quando a preço e disponibilidade
+        -->
+        <!-- Caso esteja disponivel apenas para venda -->
+        <span ng-if="casa.tipo.venda.disponibilidade && !casa.tipo.locacao.disponibilidade">
+          <li class="list-group-item">
+            <span>Disponível para Venda:</span> Sim
+          </li>
+          <li class="list-group-item">
+            <span>Preço Venda:</span> {{ casa.tipo.venda.preco | currency }}
+          </li>
+        </span>
+        <!-- Caso esteja disponivel apenas para locação -->
+        <span ng-if="!casa.tipo.venda.disponibilidade && casa.tipo.locacao.disponibilidade">
+          <li class="list-group-item">
+            <span>Disponível para Locação:</span> Sim
+          </li>
+          <li class="list-group-item">
+            <span>Preço Locação:</span> {{ casa.tipo.locacao.preco | currency }}
+          </li>
+        </span>
+        <!-- Caso esteja disponivel apenas para venda e locação -->
+        <span ng-if="casa.tipo.venda.disponibilidade && casa.tipo.locacao.disponibilidade">
+          <li class="list-group-item">
+            <span>Disponível para Venda/Locação:</span> Sim
+          </li>
+          <li class="list-group-item">
+            <span>Preço Locação:</span> {{ casa.tipo.locacao.preco | currency }}
+          </li>
+          <li class="list-group-item">
+            <span>Preço Venda:</span> {{ casa.tipo.venda.preco | currency }}
+          </li>
+        </span>
+      </ul>
+    </div>
+  </div>
+</div>
